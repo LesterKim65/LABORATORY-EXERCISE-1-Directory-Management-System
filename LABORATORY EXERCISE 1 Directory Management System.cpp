@@ -44,4 +44,42 @@ void changeDirectory() {
         std::cin >> dirName;
         _chdir(dirName.c_str());
     }
+_getcwd(currentDir, sizeof(currentDir));
+    std::cout << "Current Directory: " << currentDir << '\n';
+    system("pause");
+}
 
+int main() {
+    int choice;
+    do {
+        system("cls");  // Clears the screen
+        std::cout << "\nMAIN MENU\n";
+        std::cout << "1. To Display List of Files\n";
+        std::cout << "2. To Create New Directory\n";
+        std::cout << "3. To Change the Working Directory\n";
+        std::cout << "4. Exit\n";
+        std::cout << "Enter the Number: ";
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                displayFiles();
+                break;
+            case 2:
+                createDirectory();
+                break;
+            case 3:
+                changeDirectory();
+                break;
+            case 4:
+                std::cout << "Exiting...\n";
+                break;
+            default:
+                std::cout << "Invalid option! Please try again.\n";
+                system("pause");
+                break;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
